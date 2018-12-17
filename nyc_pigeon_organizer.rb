@@ -27,22 +27,11 @@ def get_names(data)
   ary
 end
 
-def get_color(data, new_hash)
-  data[:color].each do |key, names|
+def get_tag_data(data, new_hash, tag)
+  data[tag].each do |key, names|
     new_hash.each do |name, d|
-      if data[:color][key].include?(name)
-        new_hash[name][:color] << key
-      end
-    end
-  end
-new_hash
-end
-
-def get_gender(data, new_hash)
-  data[:gender].each do |key, names|
-    new_hash.each do |name, d|
-      if data[:gender][key].include?(name)
-        new_hash[name][:gender] << key
+      if data[tag][key].include?(name)
+        new_hash[name][tag] << key
       end
     end
   end
@@ -55,8 +44,8 @@ def nyc_pigeon_organizer(data)
   names.each do |name|
     new_hash[name] = {color: [], gender: [], lives: []}
   end
-  new_hash = get_color(data, new_hash)
-  new_hash = get_gender(data, new_hash)
+  new_hash = get_tag_data(data, new_hash, :color)
+  new_hash = get_gender(data, new_hash, :gender)
 binding.pry
 
 end
