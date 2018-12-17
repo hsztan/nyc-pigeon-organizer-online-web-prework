@@ -32,7 +32,6 @@ def get_tag_data(data, new_hash, tag)
     new_hash.each do |name, d|
       if data[tag][key].include?(name)
         new_hash[name][tag] << key.to_s
-        binding.pry
       end
     end
   end
