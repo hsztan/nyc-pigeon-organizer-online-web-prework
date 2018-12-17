@@ -45,7 +45,7 @@ def nyc_pigeon_organizer(data)
     new_hash[name] = {color: [], gender: [], lives: []}
   end
   new_hash = get_tag_data(data, new_hash, :color)
-  new_hash = get_gender(data, new_hash, :gender)
+  new_hash = get_tag_data(data, new_hash, :gender)
 binding.pry
 
 end
