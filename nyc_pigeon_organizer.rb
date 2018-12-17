@@ -31,7 +31,7 @@ def get_tag_data(data, new_hash, tag)
   data[tag].each do |key, names|
     new_hash.each do |name, d|
       if data[tag][key].include?(name)
-        new_hash[name][tag] << key
+        new_hash[name][tag] << key.to_s
         binding.pry
       end
     end
